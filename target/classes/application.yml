@@ -1,0 +1,71 @@
+server:
+  port: 8081
+  tomcat:
+    threads.max: 50
+    max-connections: 100
+    max-http-form-post-size: 120MB
+    connection-timeout: 60000
+
+mybatis-plus:
+  mapper-locations: classpath*:mapper/**/*.xml
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  mail:
+    host: smtp.qq.com
+    username: 2097911254@qq.com
+    password: mchtjnkwxqwmdchb
+    default-encoding: utf-8
+    protocol: smtp
+    port: 465
+    properties:
+      mail:
+        smtp:
+          socketFactory:
+            port: 465
+            class: javax.net.ssl.SSLSocketFactory
+          ssl:
+            enable: true
+
+  datasource:
+    url: jdbc:mysql://${spring.datasource.host:localhost}:${spring.datasource.port:3333}/poetize?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+#    url: jdbc:mysql://127.0.0.1:3306/poetize?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    password: passwd
+    username: root
+
+user:
+  code:
+    format:
+  subscribe:
+    format:
+
+store:
+  type:
+
+#可能是本地上传下载路径？？(linux直接给路径？？）
+#local:
+#  enable:
+#  uploadUrl:
+#  downloadUrl:
+
+qiniu:
+  enable:
+#  accessKey: 74PRiSjrgtcnZ8b1hr3dNYRrjl8jJ4Z5cMtSZufV
+  accessKey:
+#  secretKey: LInwl8L9HMaJTNrZ3Pl4UysG9h0bGbLTsjysRLiP
+  secretKey:
+#  bucket: hanser-blog
+  bucket:
+  downloadUrl:
